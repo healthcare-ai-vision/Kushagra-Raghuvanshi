@@ -1,0 +1,15 @@
+# Medical Imaging Dataset Exploration
+
+### Dataset 1: Chest X-Ray Images (Pneumonia)
+* **Type of Data:** Digital Chest X-Ray (AP/PA views).
+* **Number of Images:** 5,856 JPEG images.
+* **Classes:** Two main classes: Normal and Pneumonia (sub-classified as Viral/Bacterial).
+* **Imbalance:** Significant imbalance. There are many more Pneumonia samples (approx. 4,273) compared to Normal samples (approx. 1,583).
+* **Challenges:** The images vary in brightness and contrast quality. Distinguishing between viral and bacterial pneumonia is difficult due to visual similarities in lung opacity.
+
+### Dataset 2: ISIC 2019 (Skin Lesion Analysis)
+* **Type of Data:** Dermoscopic images of skin lesions.
+* **Number of Images:** 25,331 images.
+* **Classes:** 8 diagnostic categories including Melanoma, Melanocytic nevus, Basal cell carcinoma, and Actinic keratosis.
+* **Imbalance:** Highly imbalanced. 'Melanocytic nevus' is the dominant class (~12,000 images), while classes like 'Vascular lesion' have very few samples (~250).
+* **Challenges:** High visual similarity between benign and malignant lesions. Images often contain artifacts like hair, gel bubbles, or ruler markings which act as noise.

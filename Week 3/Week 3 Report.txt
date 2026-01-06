@@ -1,0 +1,23 @@
+Week 2 Results: Skin Lesion Classification
+Submitted by: Kushagra Raghuvanshi
+
+1. Dataset Overview
+   - Dataset: Skin Computer Vision Model (skin-ga5ww)
+   - Source: Roboflow
+   - Type: Classification
+   - Format: Folder Structure
+
+2. Model Used
+   - Architecture: YOLOv8-Nano Classification (yolov8n-cls)
+   - Framework: Ultralytics PyTorch
+
+3. Training Results
+   - Epochs: 10
+   - Final Top-1 Accuracy: 97.7% (0.977)
+   - Training Time: ~1 hour
+   - Results Saved to: runs/classify/train3
+
+4. Observations
+   The model achieved a very high accuracy of 97.7% in just 10 epochs. 
+   The loss converged quickly, and the model effectively learned to distinguish 
+   between the skin lesion classes.
