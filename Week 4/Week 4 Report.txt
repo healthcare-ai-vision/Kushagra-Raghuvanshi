@@ -1,0 +1,86 @@
+﻿Report: Automating the Evaluation of Tumor, Infiltrating Lymphocytes (TILs) in Breast Cancer
+
+
+1. The Problem
+
+
+Breast cancer treatment greatly depends on accurate prognosis forecasting how the patient's disease will develop and how they will react to the treatment. One of the strongest indicators of this is the presence of Tumor Infiltrating Lymphocytes (TILs). These are immune cells that have moved from the blood and infiltrated the tumor, thus signifying that the patient's immune system is attempting to eliminate the cancer.
+
+
+Yet, the existing convention for judging TILs is inherently problematic. Pathologists are required to visually study glass slides (or digital replicas of them) under a microscope and approximate the number or density of these cells. Such a procedure is:
+
+
+Subjective: One pathologist may give a different score as compared to another for a similar patient (inter, observer variability).Time, Consuming: It is agonizingly slow and boring to identify thousands of tiny cells within a complicated tissue in such a way.Hard to Scale: There are not enough expert pathologists worldwide to perform such detailed counts for every patient.
+
+
+2. Why It Matters
+
+
+This is an essential "brick, and mortar clinical problem" because accurate TIL scores have a direct bearing on the life saving decisions made. Studies have found that, in certain types of breast cancer (Triple, Negative and HER2, positive), an elevated TIL score is highly correlated with a better prognosis and a better response to chemotherapy and immunotherapy.
+If we can harness Artificial Intelligence (AI) to do this task automatically, we can produce a "computational TILs score" (cTILs) that is uniform, unbiased, and can be replicated. Consequently, healthcare professionals would be able to tell which patients are actually suitable for less aggressive treatments (thus, patients will be spared the side effects) and which ones are in need of novel immunotherapies, hence, eventually, patient survival would be improved.
+
+
+3. The Dataset
+
+
+For this project, I am using the dataset provided through the TIGER challenge resources hosted on Roboflow.
+
+
+Nature of Data: The dataset comprises high, resolution histopathology images taken from Whole Slide Images (WSIs). These are stained with H&E (Hematoxylin and Eosin) which results in the nuclei being stained purple and the cytoplasm pink.
+
+
+Content: The images show various tissue areas such as invasive tumor, stroma (connective tissue), and the target cells: lymphocytes and plasma cells.
+
+
+Annotations: The dataset provides bounding box annotations that locate individual lymphocytes. Therefore it can be utilized for "Object Detection" tasks.
+
+
+4. My Approach
+
+
+To tackle the problem of manual counting, I have chosen Task 1 of the TIGER Challenge: Lymphocyte Detection. My objective is to create a computer vision pipeline that can spot every lymphocyte in an image and automatically draw a bounding box around it.
+
+
+Methodology:
+
+
+My approach involves Deep Learning, more particularly Convolutional Neural Network (CNN).
+
+
+Model Architecture:
+
+
+I decided to go for Faster R, CNN (Region, based Convolutional Neural Network) with ResNet, 50 at its core.
+
+
+The rationale behind the selection of this model is that Faster R, CNN has been the leading choice for object detection in the industry. It is quite precise in detecting small objects (such as cells) in complex images.
+
+
+The working principle of this approach can be summarized in two steps. Firstly, it predicts the regions that potentially contain objects. Secondly, it labels those objects (as TILs) and adjusts their positions.
+
+
+Training Strategy:
+
+
+My plan is to apply "Transfer Learning". That means I won't be teaching AI from the ground up. Instead, I will take a pre-trained version of ResNet, 50 which has already been exposed to a large general dataset (COCO/ImageNet), and I will adjust it to specifically detect TILs.
+
+
+5. Challenges and Observations
+
+
+Cell Size:
+
+
+Compared to the gigantic size of the whole slide image, lymphocytes are incredibly small (only a few pixels wide).
+
+
+Visual Similarity:
+
+
+Lymphocytes share a very similar pattern with other cell nuclei (e.g. tumor cells or stromal fibroblasts). A model has to recognize very subtle differences in textures (which are TILs are generally more round and a deeper purple).
+
+
+Density:
+
+
+In the so- called "inflamed" areas, cells are so closely packed that some of them get covered (overlap). Thus, the model should have the capability of distinguishing single cells from the cluster.
