@@ -1,6 +1,6 @@
 WIDS
 
-## 📅 Week 1: Neural Networks & Image Processing
+## 📅 Week 2: Neural Networks & Image Processing
 
 **Focus:** Understanding the basics of how computers "see" images and manipulating pixel data using Python.
 
@@ -14,7 +14,7 @@ WIDS
 
 ---
 
-## 📅 Week 2: CNNs, Darknet, and YOLO
+## 📅 Week 3: CNNs, Darknet, and YOLO
 
 **Focus:** Training state-of-the-art Convolutional Neural Networks (CNNs) for real-world classification tasks.
 
